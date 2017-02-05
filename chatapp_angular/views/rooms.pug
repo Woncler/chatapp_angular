@@ -1,0 +1,148 @@
+﻿extends layout
+
+block content
+    div.navmenu.navmenu-default.navmenu-fixed-left.offcanvas-sm
+        div.navmenu-default-wrapper
+            a.navmenu-brand.visible-md.visible-lg Chatapp &#x1f601;
+            ul.nav.navmenu-nav
+                li(class=newroom ? 'active' : '')
+                    a(href='/rooms/new') Create new room
+                li(class=(room || newroom) ? '' : 'active')
+                    a(href='#' data-toggle='collapse' data-target='.room-menu') Home
+                div.navmenu-wrapper
+                    div.nav.navmenu-nav.room-menu.collapse.in
+                        each val in rooms.length ? rooms : ['NO ROOMS']
+                            li(class= room ? (room.id == val.id ? 'active' : '') : '')
+                                a(data-id= val.id href='/rooms/' + val.id)= val.name
+                li
+                    a(href='#' data-toggle='collapse' data-target='.users-menu') Online users
+                div.navmenu-wrapper
+                    div.nav.navmenu-nav.users-menu.collapse.in
+                        each val in users.length ? users : ['NO ROOMS']
+                            li.online-user
+                                a(data-id= val.id href='/rooms/u/' + val.id)= val.username
+
+    div.navbar.navbar-default.navbar-fixed-top.hidden-md.hidden-lg
+        button.navbar-toggle(type='button' data-toggle='offcanvas' data-target='.navmenu')
+            span.glyphicon.glyphicon-menu-hamburger(aria-hidden='true')
+        if (room)
+            a.navbar-brand= 'Chatapp // ' + room.name
+        else
+            a.navbar-brand Chatapp
+
+    div.container.chat-container(style='display:table;')
+        if (room || c_user)
+            - function formatDate(dateString) {
+                - var date = new Date(dateString);
+                - var d = ('0' + date.getDate()).slice(-2) + '.' + ('0' + (1 + date.getMonth())).slice(-2) + '.' + date.getFullYear();
+                - return d;
+            - }
+            div.main-content
+                div.main-table
+                    div.room-info.visible-md.visible-lg
+                        div.room-info-container
+                            if (room)
+                                div.page-header
+                                    h1= room.name
+                                p.lead= room.desc
+                                p= 'Room was opened ' + formatDate(room.created)
+                            if (c_user)
+                                div.page-header
+                                    h1= c_user.name
+                    div.msgs
+                        ul#messages
+            div.msg-footer
+                form.msg-input(action='')
+                    div.input-group
+                        div#m(contenteditable=true)
+                        span#emoji_btn.input-group-addon.btn.btn-warning(data-toggle='collapse' data-target='.emoji-menu')
+                            span.glyphicon.glyphicon-thumbs-up(aria-hidden='true')
+                        span#snd-msg.input-group-addon.btn.btn-primary
+                            span.glyphicon.glyphicon-send(aria-hidden='true')
+            div.emoji-menu.collapse
+                ul.nav.nav-tabs
+                    li.active
+                        a(data-toggle='tab' href='#e1') &#x1F604
+                    li
+                        a(data-toggle='tab' href='#e2') &#x1F40D
+                    li
+                        a(data-toggle='tab' href='#e3') &#x1F4D9
+                    li
+                        a(data-toggle='tab' href='#e4') &#x1F37B
+                    li
+                        a(data-toggle='tab' href='#e5') 5
+                    li
+                        a(data-toggle='tab' href='#e6') 6
+
+                div.tab-content
+                    - var getEmojis = function(start, end) {
+                    -   var j = 0;
+                    -   var emojiArray = [];
+                    -   for (var i = start; i < end + 1; i++) {
+                    -       emojiArray[j] = String.fromCodePoint(i);
+                    -       j++;
+                    -   }
+                    -   return emojiArray;
+                    - }
+                    div#e1.tab-pane.fade.in.active                        
+                        each val in getEmojis(0x1F601, 0x1F64F)
+                            input.emoji-span(type='button' value=val)
+                        each val in getEmojis(0x1F440, 0x1F487)
+                            input.emoji-span(type='button' value=val)
+                        each val in getEmojis(0x1F4A9, 0x1F4AA)
+                            input.emoji-span(type='button' value=val)
+                    div#e2.tab-pane.fade
+                        each val in getEmojis(0x1F40C, 0x1F43E)
+                            input.emoji-span(type='button' value=val)
+                    div#e3.tab-pane.fade
+                        each val in getEmojis(0x1F4AB, 0x1F517)
+                            input.emoji-span(type='button' value=val)
+                    div#e4.tab-pane.fade
+                        each val in getEmojis(0x1F330, 0x1F37B)
+                            input.emoji-span(type='button' value=val)
+                    div#e5.tab-pane.fade
+                        each val in getEmojis(0x1F601, 0x1F64F)
+                            input.emoji-span(type='button' value=val)
+        else if (newroom)
+            div.page-header
+                h1 CREATE NEW ROOM
+            div#create-room
+                form(action='')
+                        div.form-group
+                            label(for='roomname') Room name:
+                            input#roomname.form-control(type='text' placeholder='Select room name' name='roomname')
+                        div.form-group
+                            label(for='description') Description:
+                            input#description.form-control(type='textarea' placeholder='Write room description' name='description')
+                        div.form-group
+                            label(for='icon') Room icon (url):
+                            input#icon.form-control(type='text' placeholder='Select room icon' name='icon')
+                        div.checkbox
+                            label
+                                input#private(type='checkbox' value='')
+                                |Private room
+                        div.form-group
+                            button#room-submit.btn.btn-primary(type='submit') Create room
+        else
+            div.page-header
+                h1 CHAT
+            p.lead Choose a chatroom or create your own! You can also send messages to other online users.
+
+block scripts         
+    if (room || c_user)
+        - var roomname = null
+        - var c_id = null
+        - var u_name = user.username
+        script.
+            var u_name = '#{u_name}';
+    if (c_user)
+        - var c_id = c_user.id
+    if (room)
+        - var roomname = room.name
+    if(room || c_user)
+        script.
+            var roomname = '#{roomname}';
+            var c_id = '#{c_id}';
+        script(src='/javascripts/chat.js')
+    if(newroom)
+        script(src='/javascripts/newroom.js')

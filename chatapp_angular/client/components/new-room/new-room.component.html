@@ -1,0 +1,30 @@
+﻿<div class="page-header">
+    <h1>CREATE NEW ROOM</h1>
+</div>
+<div id="create-room">
+    <form (ngSubmit)="onSubmit()" #newRoomForm="ngForm">
+        <div class="form-group">
+            <label for="name">Room name:</label>
+            <input id="name" type="text" placeholder="Select room name" class="form-control" required [(ngModel)]="model.name" name="name" #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">You have to give a name for the room!</div>
+            <div [hidden]="!exists" class="alert alert-danger">This room already exists! Choose another name.</div>
+        </div>
+        <div class="form-group">
+            <label for="desc">Description:</label>
+            <textarea id="desc" placeholder="Write room description" class="form-control" [(ngModel)]="model.desc" name="desc"></textarea>
+        </div>
+        <!-- TO DO
+        <div class="form-group">
+            <label for="icon">Room icon (url):</label>
+            <input id="icon" type="text" placeholder="Select room icon" name="icon" class="form-control">
+        </div>-->
+        <div class="checkbox">
+            <label>
+                <input id="private" type="checkbox" [(ngModel)]="model.private" name="private">Private room
+            </label>
+        </div>
+        <div class="form-group">
+            <button id="room-submit" type="submit" class="btn btn-primary" [disabled]="!newRoomForm.form.valid">Create room</button>
+        </div>
+    </form>
+</div>

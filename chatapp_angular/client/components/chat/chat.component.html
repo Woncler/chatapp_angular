@@ -1,0 +1,55 @@
+﻿<div class="container chat-container"> 
+    <header>
+        <div class="room-info visible-md visible-lg">
+            <div class="room-info-container">
+                <div class="page-header"><h1>{{room?.name}}</h1></div>
+                <p class="lead">{{room?.desc}}</p>
+                <p>Room was created: {{room?.created}}</p>
+            </div>
+        </div>
+    </header>
+    <content #scrollMessages>
+        <div class="msgs">
+            <ul id="messages">
+                <li *ngFor="let message of messages; let i = index" class="left clearfix">
+                    <div class="comment-avatar">
+                        <img src="http://www.thewrap.com/wp-content/uploads/2016/09/1200.jpg" alt="avatar">
+                    </div>
+                    <div class="comment-box clearfix">
+                        <div class="comment-header">
+                            <strong class="primary-font">{{message.sender}}</strong>
+                            <a href="#" class="header-time small">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </a>
+                        </div>
+                        <div class="comment-content">
+                            <p *ngFor="let msg of message.messages">{{msg}}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </content>
+    <footer>
+        <div class="msg-footer">
+            <form action="" class="msg-input">
+                <div class="input-group">
+                    <div id="m" #m [(contenteditableModel)]="newmessage.message" (keydown)="enterPress($event)" contenteditable></div>
+                    <span id="emoji_btn" class="input-group-addon btn btn-warning" (click)="emojisHidden = !emojisHidden; emojimenuToggle = (emojimenuToggle == 'glyphicon-thumbs-up' ? 'glyphicon-remove' : 'glyphicon-thumbs-up')">
+                        <span aria-hidden="true" class="glyphicon {{emojimenuToggle}}"></span>
+                    </span>
+                    <span id="snd-msg" class="input-group-addon btn btn-primary" (click)="sndMsg()">
+                        <span aria-hidden="true" class="glyphicon glyphicon-send"></span>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <div [hidden]="emojisHidden" class="emoji-menu">
+            <tabset>
+                <tab *ngFor="let tab of tabs" [heading]="tab.heading">
+                    <input *ngFor="let emoji of tab.content" class="emoji-span" type="button" value="{{emoji}}" (click)="pasteEmoji(emoji)">
+                </tab>
+            </tabset>
+        </div>
+    </footer>
+</div>

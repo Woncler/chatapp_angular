@@ -1,0 +1,43 @@
+﻿<div class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
+    <div class="navmenu-default-wrapper">
+        <a class="navmenu-brand visible-md visible-lg">Chatapp</a>
+        <ul class="nav navmenu-nav">
+            <li>
+                <a routerLink="/rooms/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Create new room</a>
+            </li>
+            <li>
+                <a routerLink="/rooms" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">ROOMS</a>
+            </li>
+            <li>
+                <a routerLink="/lul/lul" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">LULLUL</a>
+            </li>
+            <li>
+                <a routerLink="/lul" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">LUL</a>
+            </li>
+            <li>
+                <a data-toggle="collapse" data-target=".room-menu">Available rooms</a>
+            </li>
+            <div class="navmenu-wrapper">
+                <div class="nav navmenu-nav room-menu collapse in">
+                    <li class="available-room" *ngFor="let room of rooms">
+                        <a id="{{room.id}}" [routerLink]="['/rooms', room.id]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                            {{room.name}}
+                        </a>
+                    </li>
+                </div>
+            </div>
+            <li>
+                <a data-toggle="collapse" data-target=".usersmenu">Online users</a>
+            </li>
+            <div class="navmenu-wrapper">
+                <div class="nav navmenu-nav users-menu collapse in">
+                    <li class="online-user" *ngFor="let user of users">
+                        <a id="{{user.id}}" href="/users/{{user.id}}">
+                            {{user.name}}
+                        </a>
+                    </li>
+                </div>
+            </div>
+        </ul>
+    </div>
+</div>

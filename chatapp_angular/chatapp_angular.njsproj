@@ -1,0 +1,210 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>chatapp_angular</Name>
+    <RootNamespace>chatapp_angular</RootNamespace>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <NameOfLastUsedPublishProfile>ilechat-test - Web Deploy</NameOfLastUsedPublishProfile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>9eea1e1d-0460-406c-9cad-d3fdefd1c93f</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>bin\www</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="bin\ChangeConfig.ps1" />
+    <Content Include="bin\download.ps1" />
+    <Content Include="bin\Microsoft.NodejsTools.WebRole.dll" />
+    <Content Include="bin\node.cmd" />
+    <Content Include="bin\setup_web.cmd" />
+    <Content Include="bin\www" />
+    <Content Include="client\app.component.html" />
+    <Content Include="client\app.component.js.map" />
+    <Content Include="client\app.module.js.map" />
+    <Content Include="client\app.routing.js.map" />
+    <Content Include="client\components\app-header\app-header.component.html" />
+    <Content Include="client\components\app-header\app-header.component.js.map" />
+    <Content Include="client\components\chat\chat.component.html" />
+    <Content Include="client\components\chat\chat.component.js.map" />
+    <Content Include="client\components\home\home.component.html" />
+    <Content Include="client\components\home\home.component.js.map" />
+    <Content Include="client\components\navbar\navbar.component.html" />
+    <Content Include="client\components\navbar\navbar.component.js.map" />
+    <Content Include="client\components\new-room\new-room.component.html" />
+    <Content Include="client\components\new-room\new-room.component.js.map" />
+    <Content Include="client\components\not-found\not-found.component.html" />
+    <Content Include="client\components\not-found\not-found.component.js.map" />
+    <Content Include="client\directives\contenteditable.directive.js.map" />
+    <Content Include="client\main.js.map" />
+    <Content Include="client\resolvers\room.resolve.js.map" />
+    <Content Include="client\resolvers\socket.resolve.js.map" />
+    <Content Include="client\resolvers\user.resolve.js.map" />
+    <Content Include="client\services\chat\chat.service.js.map" />
+    <Content Include="client\services\navbar\navbar.service.js.map" />
+    <Content Include="client\services\socket\socket.service.js.map" />
+    <Content Include="client\services\user\user.service.js.map" />
+    <Content Include="client\types\message.type.js.map" />
+    <Content Include="client\types\room.type.js.map" />
+    <Content Include="client\types\user.type.js.map" />
+    <Content Include="IISNode.yml" />
+    <Content Include="client\tsconfig.json" />
+    <None Include="ilechat-test - Web Deploy.pubxml" />
+    <Content Include="views\angular.html" />
+    <Content Include="views\angular.pug" />
+    <Content Include="views\error.pug" />
+    <Content Include="views\index.pug" />
+    <Content Include="views\layout.pug" />
+    <Content Include="views\rooms.pug" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config" />
+    <Content Include="package.json" />
+    <Content Include="public\styles.css" />
+    <Content Include="public\stylesheets\main.css" />
+    <Content Include="public\stylesheets\nav.css" />
+    <Content Include="public\stylesheets\room.css" />
+    <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="client\" />
+    <Folder Include="client\components\" />
+    <Folder Include="client\components\app-header\" />
+    <Folder Include="client\components\chat\" />
+    <Folder Include="client\components\home\" />
+    <Folder Include="client\components\navbar\" />
+    <Folder Include="client\components\new-room\" />
+    <Folder Include="client\components\not-found\" />
+    <Folder Include="client\directives\" />
+    <Folder Include="client\resolvers\" />
+    <Folder Include="client\services\" />
+    <Folder Include="client\services\chat\" />
+    <Folder Include="client\services\navbar\" />
+    <Folder Include="client\services\socket\" />
+    <Folder Include="client\services\user\" />
+    <Folder Include="client\types\" />
+    <Folder Include="db\" />
+    <Folder Include="public\" />
+    <Folder Include="public\javascripts\" />
+    <Folder Include="public\stylesheets\" />
+    <Folder Include="routes\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="client\app.component.js" />
+    <Compile Include="client\app.module.js" />
+    <Compile Include="client\app.routing.js" />
+    <Compile Include="client\components\app-header\app-header.component.js" />
+    <Compile Include="client\components\chat\chat.component.js" />
+    <Compile Include="client\components\home\home.component.js" />
+    <Compile Include="client\components\navbar\navbar.component.js" />
+    <Compile Include="client\components\new-room\new-room.component.js" />
+    <Compile Include="client\components\not-found\not-found.component.js" />
+    <Compile Include="client\directives\contenteditable.directive.js" />
+    <Compile Include="client\main.js" />
+    <Compile Include="client\resolvers\room.resolve.js" />
+    <Compile Include="client\resolvers\socket.resolve.js" />
+    <Compile Include="client\resolvers\user.resolve.js" />
+    <Compile Include="client\services\chat\chat.service.js" />
+    <Compile Include="client\services\navbar\navbar.service.js" />
+    <Compile Include="client\services\socket\socket.service.js" />
+    <Compile Include="client\services\user\user.service.js" />
+    <Compile Include="client\types\message.type.js" />
+    <Compile Include="client\types\room.type.js" />
+    <Compile Include="client\types\user.type.js" />
+    <Compile Include="db\dbop.js" />
+    <Compile Include="db\dbop2.js" />
+    <Compile Include="db\index.js" />
+    <Compile Include="public\javascripts\chat.js" />
+    <Compile Include="public\javascripts\login.js" />
+    <Compile Include="public\javascripts\newroom.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="routes\rooms.js" />
+    <Compile Include="client\systemjs.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="client\app.component.ts" />
+    <TypeScriptCompile Include="client\app.module.ts" />
+    <TypeScriptCompile Include="client\app.routing.ts" />
+    <TypeScriptCompile Include="client\components\app-header\app-header.component.ts" />
+    <TypeScriptCompile Include="client\components\chat\chat.component.ts" />
+    <TypeScriptCompile Include="client\components\home\home.component.ts" />
+    <TypeScriptCompile Include="client\components\navbar\navbar.component.ts" />
+    <TypeScriptCompile Include="client\components\new-room\new-room.component.ts" />
+    <TypeScriptCompile Include="client\components\not-found\not-found.component.ts" />
+    <TypeScriptCompile Include="client\directives\contenteditable.directive.ts" />
+    <TypeScriptCompile Include="client\main.ts" />
+    <TypeScriptCompile Include="client\resolvers\room.resolve.ts" />
+    <TypeScriptCompile Include="client\resolvers\socket.resolve.ts" />
+    <TypeScriptCompile Include="client\resolvers\user.resolve.ts" />
+    <TypeScriptCompile Include="client\services\chat\chat.service.ts" />
+    <TypeScriptCompile Include="client\services\navbar\navbar.service.ts" />
+    <TypeScriptCompile Include="client\services\socket\socket.service.ts" />
+    <TypeScriptCompile Include="client\services\user\user.service.ts" />
+    <TypeScriptCompile Include="client\types\message.type.ts" />
+    <TypeScriptCompile Include="client\types\room.type.ts" />
+    <TypeScriptCompile Include="client\types\user.type.ts" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,51 @@
+﻿extends layout
+
+block content
+    div.container.login-container
+        if (!user)
+            ul.nav.nav-tabs
+                li.active
+                    a(data-toggle='tab' href='#login') Login
+                li
+                    a(data-toggle='tab' href='#register') Register
+
+            div.tab-content.login-tab-content
+                div#login.tab-pane.fade.in.active
+                    form(action='')
+                        div.form-group
+                            label(for='username') Username:
+                            div.input-group
+                                span.input-group-addon
+                                    span.glyphicon.glyphicon-user(aria-hidden='true')
+                                input#username.form-control(type='text' placeholder='Select username' name='username')
+                        div.form-group
+                            label(for='password') Password:
+                            div.input-group
+                                span.input-group-addon
+                                    span.glyphicon.glyphicon-lock(aria-hidden='true')
+                                input#password.form-control(type='password' placeholder='Select password' name='password')
+                        div.form-group
+                            button#login-submit.btn.btn-primary(type='submit') Login
+                div#register.tab-pane.fade
+                    form(action='')
+                        div.form-group
+                            label(for='username') Username:
+                            div.input-group
+                                span.input-group-addon
+                                    span.glyphicon.glyphicon-user(aria-hidden='true')
+                                input#r_username.form-control(type='text', placeholder='Select username' name='username')
+                        div.form-group
+                            label(for='password') Password:
+                            div.input-group
+                                span.input-group-addon
+                                    span.glyphicon.glyphicon-lock(aria-hidden='true')
+                                input#r_password.form-control(type='password', placeholder='Select password' name='password')
+                        div.form-group
+                            button#register-submit.btn.btn-primary(type='submit') Register
+        else
+            p You are logged in as #{user.username}
+            a(href='/logout')
+                button.btn.btn-primary Logout
+
+block scripts
+    script(src='/javascripts/login.js')

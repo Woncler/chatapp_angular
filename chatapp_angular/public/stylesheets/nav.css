@@ -1,0 +1,60 @@
+﻿.navmenu {
+    padding-top: 50px;
+}
+
+.navbar {
+    display: block;
+    text-align: center;
+}
+
+.navbar-brand {
+    display: inline-block;
+    float: none;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #58c1b7;
+}
+
+.navbar-toggle {
+    position: absolute;
+    height: 50px;
+    padding: 0 15px;
+    border: none;
+    border-right: 1px solid #58c1b7;
+    margin: 0;
+    background-color: #3ca79d;
+    border-radius: 0 4px 4px 0;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #088074;
+}
+
+.navbar-toggle .glyphicon {
+    color: #fff;
+}
+
+.container {
+    max-width: 100%;
+}
+
+@media (min-width: 1px) {
+    .navbar-toggle {
+        display: block !important;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        padding: 0 0 0 300px;
+    }
+
+    .navmenu {
+        padding-top: 0;
+    }
+
+    .navbar {
+        display: none !important; /* IE8 fix */
+    }
+}
