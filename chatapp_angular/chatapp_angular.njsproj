@@ -69,7 +69,6 @@
     <Content Include="client\types\user.type.js.map" />
     <Content Include="IISNode.yml" />
     <Content Include="client\tsconfig.json" />
-    <None Include="ilechat-test - Web Deploy.pubxml" />
     <Content Include="views\angular.html" />
     <Content Include="views\angular.pug" />
     <Content Include="views\error.pug" />
